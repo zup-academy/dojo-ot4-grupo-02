@@ -9,16 +9,19 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-@Constraint(validatedBy = ValorUnicoValidator.class)
 @Documented
+@Constraint(validatedBy = {ValoUnicoValidator.class})
+@Target({ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
 public @interface ValorUnico {
 
-	    String message ()default"O campo está duplicado";
-	    Class<?>[] groups() default {};
-	    Class<? extends Payload>[] payload() default {};
+	String message() default "já existe um recurso com este valor";
 
-	    String campo();
-	    Class<?> classe();
+	Class<?>[] groups() default {};
+
+	Class<? extends Payload>[] payload() default {};
+
+	String fieldName();
+
+	Class<?> domainClass();
 }

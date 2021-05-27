@@ -3,10 +3,7 @@ package br.com.zupedu.dojo.ot4dojo.turma;
 import br.com.zupedu.dojo.ot4dojo.validacao.ValorUnico;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.validation.constraints.Future;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -14,15 +11,16 @@ public class TurmaRequest {
 
     @NotBlank
     @Size(max=50)
-    @ValorUnico(classe = Turma.class, campo = "nome")
+    @ValorUnico(domainClass = Turma.class,
+            fieldName= "nome")
     private String nome;
 
     @NotNull @JsonFormat(pattern ="yyyy-MM-dd" ,shape = JsonFormat.Shape.STRING)
-    @ValorUnico(classe = Turma.class, campo = "iniciaEm")
+    @ValorUnico(domainClass = Turma.class, fieldName = "iniciaEm")
     private LocalDate iniciaEm;
 
     @NotNull @JsonFormat(pattern ="yyyy-MM-dd" ,shape = JsonFormat.Shape.STRING)
-    @Future
+    @FutureOrPresent
     private LocalDate terminaEm;
 
     @Deprecated
