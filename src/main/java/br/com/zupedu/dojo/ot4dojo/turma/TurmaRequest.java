@@ -15,5 +15,23 @@ public class TurmaRequest {
     @NotNull
     private LocalDateTime terminaEm;
 
+    @Deprecated
+    public TurmaRequest() {
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public LocalDateTime getIniciaEm() {
+		return iniciaEm;
+	}
+
+	public LocalDateTime getTerminaEm() {
+		return terminaEm;
+	}
     
+    public Turma toModel() {
+    	return new Turma(nome, iniciaEm, terminaEm);
+    }
 }

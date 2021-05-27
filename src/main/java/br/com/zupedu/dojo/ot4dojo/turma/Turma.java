@@ -29,6 +29,10 @@ public class Turma {
         this.iniciaEm = iniciaEm;
         this.terminaEm = terminaEm;
     }
+    
+    @Deprecated
+    public Turma() {
+	}
 
     //Getters
     public Long getId() {
