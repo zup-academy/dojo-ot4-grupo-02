@@ -29,8 +29,6 @@ public class TurmaController {
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().build();
 		}
-		
-		
 	}
 }
 

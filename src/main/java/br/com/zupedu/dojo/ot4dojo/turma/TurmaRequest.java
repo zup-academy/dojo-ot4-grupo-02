@@ -1,8 +1,11 @@
 package br.com.zupedu.dojo.ot4dojo.turma;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class TurmaRequest {
@@ -10,10 +13,12 @@ public class TurmaRequest {
     @NotBlank
     @Size(max=50)
     private String nome;
-    @NotNull
-    private LocalDateTime iniciaEm;
-    @NotNull
-    private LocalDateTime terminaEm;
+
+    @NotNull @JsonFormat(pattern ="yyyy-MM-dd" ,shape = JsonFormat.Shape.STRING)
+    private LocalDate iniciaEm;
+
+    @NotNull @JsonFormat(pattern ="yyyy-MM-dd" ,shape = JsonFormat.Shape.STRING)
+    private LocalDate terminaEm;
 
     @Deprecated
     public TurmaRequest() {
@@ -23,11 +28,11 @@ public class TurmaRequest {
 		return nome;
 	}
 
-	public LocalDateTime getIniciaEm() {
+	public LocalDate getIniciaEm() {
 		return iniciaEm;
 	}
 
-	public LocalDateTime getTerminaEm() {
+	public LocalDate getTerminaEm() {
 		return terminaEm;
 	}
     

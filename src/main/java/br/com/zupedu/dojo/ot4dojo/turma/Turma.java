@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,12 +20,12 @@ public class Turma {
     @NotBlank @Size(max=50)
     private String nome;
     @NotNull
-    private LocalDateTime iniciaEm;
+    private LocalDate iniciaEm;
     @NotNull
-    private LocalDateTime terminaEm;
+    private LocalDate terminaEm;
 
     //Constructor
-    public Turma(String nome, LocalDateTime iniciaEm, LocalDateTime terminaEm) {
+    public Turma(String nome, LocalDate iniciaEm, LocalDate terminaEm) {
         this.nome = nome;
         this.iniciaEm = iniciaEm;
         this.terminaEm = terminaEm;
@@ -43,11 +44,11 @@ public class Turma {
         return nome;
     }
 
-    public LocalDateTime getIniciaEm() {
+    public LocalDate getIniciaEm() {
         return iniciaEm;
     }
 
-    public LocalDateTime getTerminaEm() {
+    public LocalDate getTerminaEm() {
         return terminaEm;
     }
 }
