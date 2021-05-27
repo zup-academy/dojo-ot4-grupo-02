@@ -20,12 +20,14 @@ public class TurmaController {
 	private TurmaRepository turmaRepositry;
 
 	@PostMapping
-	public ResponseEntity<?> criarTurma(@RequestBody @Valid TurmaRequest request, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<?> criarTurma(@RequestBody @Valid TurmaRequest request,
+										UriComponentsBuilder uriBuilder) {
 
 			Turma novaTurma = request.toModel();
 			turmaRepositry.save(novaTurma);
 			URI uri = uriBuilder.path("turma/{id}").build(novaTurma.getId());
-			return ResponseEntity.created(uri).build();
+
+			return ResponseEntity.created(uri).body(new TurmaResponse(novaTurma));
 
 	}
 }

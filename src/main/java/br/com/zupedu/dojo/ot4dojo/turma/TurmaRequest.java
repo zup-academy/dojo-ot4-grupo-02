@@ -24,7 +24,6 @@ public class TurmaRequest {
     private LocalDate terminaEm;
 
     @Deprecated
-
     public TurmaRequest() {
 	}
 
