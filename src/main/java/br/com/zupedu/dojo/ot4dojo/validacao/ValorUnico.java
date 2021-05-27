@@ -15,7 +15,7 @@ import javax.validation.Payload;
 @Documented
 public @interface ValorUnico {
 
-	    String mensagem ()default"O campo está duplicado";
+	    String message ()default"O campo está duplicado";
 	    Class<?>[] groups() default {};
 	    Class<? extends Payload>[] payload() default {};
 

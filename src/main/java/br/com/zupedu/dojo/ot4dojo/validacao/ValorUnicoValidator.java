@@ -25,8 +25,9 @@ public class ValorUnicoValidator implements ConstraintValidator<ValorUnico, Obje
 	@Override
 	public boolean isValid(Object o, ConstraintValidatorContext constraintValidatorContext) {
 
-		Query query = entityManager.createQuery("SELECT 1 FROM " + classe.getName() +
-				"WHERE " + campo + " = :value").setParameter("value", o);
+		Query query = entityManager.createQuery(
+				"SELECT 1 FROM " + classe.getName() + " WHERE " + campo + " =:value"
+		).setParameter("value", o);
 
 		List<?> list = query.getResultList();
 
