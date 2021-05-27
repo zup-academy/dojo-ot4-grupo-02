@@ -6,10 +6,14 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
-@Table(uniqueConstraint = {@UniqueConstraint(name = "turmaUnica", columnNames = "nome")})
+@Table(
+        uniqueConstraints = {
+                @UniqueConstraint(name = "turma_nome_unico", columnNames = "nome"),
+                @UniqueConstraint(name = "turma_data_inicio_unica", columnNames = "iniciaEm")
+        }
+)
 public class Turma {
 
     @Id
